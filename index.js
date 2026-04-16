@@ -2,35 +2,34 @@ function modifyContent() {
   const weeklyEvents = document.querySelector(".content");
 
     weeklyEvents.innerHTML = `
-      <h2>Weekly events</h2>
+      <h2>Weekly events:</h2>
       <ul class="this-week">
         <li id="monday" class="week-day">
           <h3>Monday</h3>
-          <img src="">
-        </li>
-        <li id="tuesday" class="week-day">
-          <h3>Tuesday</h3>
-          <img src="">
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/pillows4-13-288x360.jpg">
         </li>
         <li id="wednesday" class="week-day">
           <h3>Wednesday</h3>
-          <img src="">
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/DMBoysTApril-278x360.jpg">
         </li>
         <li id="thursday" class="week-day">
           <h3>Thursday</h3>
-          <img src="">
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/UP4-16-262x360.jpg">
         </li>
         <li id="friday" class="week-day">
           <h3>Friday</h3>
-          <img src="">
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/tradeapril-278x360.jpg">
         </li>
-        <li id="saturday" class="week-day">
-          <h3>Saturday</h3>
-          <img src="">
+        <li id="saturday-happy-hour" class="week-day">
+          <h3>Saturday Happy hour</h3>
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/chubapril-278x360.jpg">
+        </li><li id="saturday-evening" class="week-day">
+          <h3>Saturday Evening</h3>
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/BPapril-280x360.jpg">
         </li>
         <li id="sunday" class="week-day">
           <h3>Sunday</h3>
-          <img src="">
+          <img class="event-img" src="https://powerhousebar.com/wp-content/uploads/2026/04/cgateapril2-203x360.jpg">
         </li>
         <li id="future-events" class="week-day">
           <h3>Future Events</h3>
@@ -40,6 +39,69 @@ function modifyContent() {
         </li>
       </ul>
   `;
+
+
+  const style = document.createElement("style");
+  style.innerHTML = `
+  @imports url('https://fonsts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .content {
+        background-image: linear-gradient(to bottom right, #000000d6 30%, #000000c0 50%);
+  }
+
+  h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ff0303;
+  }
+
+  h3 {
+    color: #ff4040;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+    background-color: #10101021;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px #101010bd
+  }
+
+   li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: center;
+  }
+
+  .event-img {
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid red;
+    height: 425px;
+    width: 285px;
+  }
+
+
+   `;
+  document.head.appendChild(style);
 
 
 };
