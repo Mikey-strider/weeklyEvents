@@ -5,19 +5,18 @@ function modifyContent() {
       <h2>Weekly events:</h2>
 
       <h3>Current Events</h3>
-          <div class="event-carousel">
-            <h2>CSS carousel single item per page</h2>
-            <ul class="current-placement">
-              <li data-accName="Item 1">
+          <div class="current-placement">
+            <ul class="event-carousel">
+              <li class="current-carousel" data-accName="Item 1">
                 <h2>Page 1</h2>
               </li>
-              <li data-accName="Item 2">
+              <li class="current-carousel" data-accName="Item 2">
                 <h2>Page 2</h2>
               </li>
-              <li data-accName="Item 3">
+              <li class="current-carousel" data-accName="Item 3">
                 <h2>Page 3</h2>
               </li>
-              <li data-accName="Item 4">
+              <li class="current-carousel" data-accName="Item 4">
                 <h2>Page 4</h2>
               </li>
             </ul>
@@ -53,19 +52,18 @@ function modifyContent() {
         </li>
         <li id="future-events" class="week-day">
           <h3>Future Events</h3>
-          <div class="event-carousel">
-            <h2>CSS carousel single item per page</h2>
-            <ul class="future-placement">
-              <li data-accName="Item 1">
+          <div class="future-placement">
+            <ul class="future-carousel">
+              <li class="future-image" data-accName="Item 1">
                 <h2>Page 1</h2>
               </li>
-              <li data-accName="Item 2">
+              <li class="future-image" data-accName="Item 2">
                 <h2>Page 2</h2>
               </li>
-              <li data-accName="Item 3">
+              <li class="future-image" data-accName="Item 3">
                 <h2>Page 3</h2>
               </li>
-              <li data-accName="Item 4">
+              <li class="future-image" data-accName="Item 4">
                 <h2>Page 4</h2>
               </li>
             </ul>
@@ -142,6 +140,133 @@ function modifyContent() {
     width: 285px;
   }
 
+
+  .event-carousel {
+    width: 100vw;
+    height: 300px;
+    padding: 20px;
+    display: flex;
+    gap: 4vw;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    anchor-name: --event-carousel;
+  }
+
+  .event-carousel::scroll-button(*) {
+    border: 0;
+    font-size: 2rem;
+    background: none;
+    color: black;
+    opacity: 0.7;
+    cursor: pointer;
+    position: absolute;
+    position-anchor: --event-carousel;
+  }
+
+  .event-carousel::scroll-button(*):hover, 
+    .event-carousel::scroll-button(*):focus {
+      opacity: 1;
+  }
+
+  .event-carousel::scroll-button(*):active {
+    translate: 1px 1px;
+  }
+
+  .event-carousel::scroll-button(*):disabled {
+    opacity: 0.2;
+    cursor: unset;
+  }
+
+  .event-carousel::scroll-button(left) {
+    content: "◄" / "Previous";
+    right: calc(anchor(left) - 70px);
+    bottom: calc(anchor(top) + 13px);
+  }
+
+  .event-carousel::scroll-button(right) {
+    content: "►" / "Next";
+    left: calc(anchor(right) - 70px);
+    bottom: calc(anchor(top) + 13px);
+  }
+
+
+
+  .current-carousel {
+    scroll-snap-align: center;
+    list-style-type: none;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    flex: 0 0 100%;
+  }
+
+  .current-carousel:nth-child(even) {
+    background-color: cyan;
+  }
+
+
+  .future-carousel {
+    width: 100vw;
+    height: 300px;
+    padding: 20px;
+    display: flex;
+    gap: 4vw;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    anchor-name: --future-carousel;
+  }
+
+  .future-carousel::scroll-button(*) {
+    border: 0;
+    font-size: 2rem;
+    background: none;
+    color: black;
+    opacity: 0.7;
+    cursor: pointer;
+    position: absolute;
+    position-anchor: --future-carousel;
+  }
+
+  .future-carousel::scroll-button(*):hover, 
+    .future-carousel::scroll-button(*):focus {
+      opacity: 1;
+  }
+
+  .future-carousel::scroll-button(*):active {
+    translate: 1px 1px;
+  }
+
+  .future-carousel::scroll-button(*):disabled {
+    opacity: 0.2;
+    cursor: unset;
+  }
+
+  .future-carousel::scroll-button(left) {
+    content: "◄" / "Previous";
+    right: calc(anchor(left) - 70px);
+    bottom: calc(anchor(top) + 13px);
+  }
+
+  .future-carousel::scroll-button(right) {
+    content: "►" / "Next";
+    left: calc(anchor(right) - 70px);
+    bottom: calc(anchor(top) + 13px);
+  }
+
+
+
+  .future-image {
+    scroll-snap-align: center;
+    list-style-type: none;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    flex: 0 0 100%;
+  }
+
+  .future-image:nth-child(even) {
+    background-color: cyan;
+  }
 
    `;
   document.head.appendChild(style);
